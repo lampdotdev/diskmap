@@ -3,7 +3,7 @@
     {
       "name" : "Disk Map",
       "starter" : "diskmap",
-      "url" : "https://github.com/RooCodeInc/lamp-starter-diskmap"
+      "url" : "https://github.com/lampdotdev/diskmap"
     }
   ],
   "upstream" : [
