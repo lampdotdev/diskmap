@@ -301,7 +301,7 @@ cat > "$APP/Contents/Info.plist" <<PLIST
 <plist version="1.0"><dict>
   <key>CFBundleDevelopmentRegion</key><string>en</string>
   <key>CFBundleExecutable</key><string>DiskMap</string>
-  <key>CFBundleIdentifier</key><string>dev.lamp.dev.pensive-curie-69cf17.app.diskmap</string>
+  <key>CFBundleIdentifier</key><string>dev.lamp.dev.app.diskmap</string>
   <key>CFBundleName</key><string>Disk Map</string>
   <key>CFBundleDisplayName</key><string>Disk Map</string>
   <key>CFBundlePackageType</key><string>APPL</string>
@@ -325,6 +325,6 @@ cat > "$APP/Contents/Info.plist" <<PLIST
   <key>NSAppleMusicUsageDescription</key><string>Disk Map plays music from your library.</string>
 </dict></plist>
 PLIST
-intents DiskMap "$APP" "dev.lamp.dev.pensive-curie-69cf17.app.diskmap" Sources
+intents DiskMap "$APP" "dev.lamp.dev.app.diskmap" Sources
 codesign --force -s - "$APP"
 echo "Built $APP"
