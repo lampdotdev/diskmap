@@ -1,0 +1,12 @@
+{
+  "remixOf" : [
+    {
+      "name" : "Disk Map",
+      "starter" : "diskmap",
+      "url" : "https://github.com/RooCodeInc/lamp-starter-diskmap"
+    }
+  ],
+  "upstream" : [
+
+  ]
+}
