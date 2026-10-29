@@ -4,21 +4,23 @@
 
 <p align="center">Shows where your disk space goes, as rings that fill in while it measures.</p>
 
-<p align="center"><a href="#remix-it-with-lamp">Remix it with Lamp</a> · <a href="#build-it-yourself">Build it yourself</a></p>
+<p align="center"><a href="https://lamp.dev/?repo=https://github.com/lampdotdev/diskmap&amp;from=readme"><img src=".github/open-in-lamp.svg" width="164" height="48" alt="Open in Lamp"></a></p>
+
+<p align="center"><a href="#build-it-yourself">Build it yourself</a></p>
 
 <p align="center"><img src=".github/preview.png" width="720" alt="Disk Map"></p>
 
 ## Make Disk Map yours
 
-It's yours to change by asking Lamp. A few places to start:
+Each opens Lamp with a copy of Disk Map and that change, ready to send:
 
-- Draw the map as tiles
-- Find big files I never open
-- Map where my week's hours go
+- [Draw the map as tiles](https://lamp.dev/?repo=https://github.com/lampdotdev/diskmap&from=readme&ask=Draw%20the%20map%20as%20tiles)
+- [Find big files I never open](https://lamp.dev/?repo=https://github.com/lampdotdev/diskmap&from=readme&ask=Find%20big%20files%20I%20never%20open)
+- [Map where my week's hours go](https://lamp.dev/?repo=https://github.com/lampdotdev/diskmap&from=readme&ask=Map%20where%20my%20week's%20hours%20go)
 
-## Remix it with Lamp
+## Open it in Lamp
 
-[Lamp](https://lamp.dev) is a Mac app that builds apps from a description and changes them as you ask. In Lamp, choose File → Open from GitHub… and paste `https://github.com/lampdotdev/diskmap`: you get this exact wish, yours to change, with the credits below kept.
+[Lamp](https://lamp.dev) is a Mac app that builds apps from a description and changes them as you ask. [Open Disk Map in Lamp](https://lamp.dev/?repo=https://github.com/lampdotdev/diskmap&from=readme) for a copy of your own, to use and to change as you like, with the credits below kept. Or, in Lamp, choose File → Open from GitHub… and paste `https://github.com/lampdotdev/diskmap`.
 
 ## Build it yourself
 
