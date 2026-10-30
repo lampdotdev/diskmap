@@ -8,7 +8,9 @@
 
 <p align="center"><a href="#build-it-yourself">Build it yourself</a></p>
 
-<p align="center"><img src=".github/preview.png" width="720" alt="Disk Map"></p>
+<p align="center"><a href=".github/showcase/reel.mp4"><img src=".github/showcase/loop.webp" width="720" alt="Disk Map"></a></p>
+
+<p align="center"><a href=".github/showcase/reel.mp4">Watch it with sound</a></p>
 
 ## Make Disk Map yours
 
@@ -26,8 +28,8 @@ Each opens Lamp with a copy of Disk Map and that change, ready to send:
 
 With Apple's Command Line Tools installed (`xcode-select --install`):
 
-```bash
-./build.sh
+```sh
+zsh build.sh
 ```
 
 The AI inside the app, and anything it does with other apps or devices, goes through Lamp, so those need Lamp open on the same Mac.

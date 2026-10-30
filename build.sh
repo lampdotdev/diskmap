@@ -1,4 +1,19 @@
 #!/bin/zsh
+LAMP_MAC_USAGE='  <key>NSMicrophoneUsageDescription</key><string>Disk Map listens to your microphone.</string>
+  <key>NSSpeechRecognitionUsageDescription</key><string>Disk Map turns your speech into text.</string>
+  <key>NSCameraUsageDescription</key><string>Disk Map uses your camera.</string>
+  <key>NSPhotoLibraryUsageDescription</key><string>Disk Map uses your photos.</string>
+  <key>NSPhotoLibraryAddUsageDescription</key><string>Disk Map saves pictures to your photos.</string>
+  <key>NSCalendarsFullAccessUsageDescription</key><string>Disk Map reads and adds calendar events.</string>
+  <key>NSRemindersFullAccessUsageDescription</key><string>Disk Map reads and adds reminders.</string>
+  <key>NSContactsUsageDescription</key><string>Disk Map looks up people in your contacts.</string>
+  <key>NSBluetoothAlwaysUsageDescription</key><string>Disk Map connects to Bluetooth devices.</string>
+  <key>NSAppleEventsUsageDescription</key><string>Disk Map reads your email and drafts replies through Mail.</string>
+  <key>NSLocalNetworkUsageDescription</key><string>Disk Map looks for printers and other devices on your network.</string>
+  <key>NSLocationUsageDescription</key><string>Disk Map uses your location.</string>
+  <key>NSLocationWhenInUseUsageDescription</key><string>Disk Map uses your location.</string>
+  <key>NSAppleMusicUsageDescription</key><string>Disk Map plays music from your library.</string>'
+LAMP_APP_NAME='Disk Map'
 # Builds build/DiskMap.app. Run after every change.
 set -euo pipefail
 cd "$(dirname "$0")"
@@ -231,7 +246,9 @@ LAMPLIVE
   FLAGS=(-c debug --package-path "$LIVE" --scratch-path "$LIVE/.build" -Xswiftc -DLAMP_LIVE -Xswiftc -enable-testing -Xlinker -interposable "${RESTRICT[@]}")
 fi
 # App Intents (Shortcuts, Siri, Spotlight, a widget's buttons): Xcode's tools write what the code declares into the app.
+# What they did is kept in .build/appintents for this build alone: Lamp reads there whether they ran.
 INTENTS=""
+rm -rf .build/appintents
 if grep -rqs --include='*.swift' -e 'import AppIntents' Sources Widget; then
   if PROCESSOR="$(xcrun -f appintentsmetadataprocessor 2>/dev/null)"; then
     INTENTS=1
@@ -302,27 +319,14 @@ cat > "$APP/Contents/Info.plist" <<PLIST
   <key>CFBundleDevelopmentRegion</key><string>en</string>
   <key>CFBundleExecutable</key><string>DiskMap</string>
   <key>CFBundleIdentifier</key><string>dev.lamp.dev.app.diskmap</string>
-  <key>CFBundleName</key><string>Disk Map</string>
-  <key>CFBundleDisplayName</key><string>Disk Map</string>
+  <key>CFBundleName</key><string>${LAMP_APP_NAME}</string>
+  <key>CFBundleDisplayName</key><string>${LAMP_APP_NAME}</string>
   <key>CFBundlePackageType</key><string>APPL</string>
   <key>CFBundleShortVersionString</key><string>0.1</string>
   <key>LSMinimumSystemVersion</key><string>14.0</string>
   <key>NSPrincipalClass</key><string>NSApplication</string>
   <key>NSHighResolutionCapable</key><true/>
-  <key>NSMicrophoneUsageDescription</key><string>Disk Map listens to your microphone.</string>
-  <key>NSSpeechRecognitionUsageDescription</key><string>Disk Map turns your speech into text.</string>
-  <key>NSCameraUsageDescription</key><string>Disk Map uses your camera.</string>
-  <key>NSPhotoLibraryUsageDescription</key><string>Disk Map uses your photos.</string>
-  <key>NSPhotoLibraryAddUsageDescription</key><string>Disk Map saves pictures to your photos.</string>
-  <key>NSCalendarsFullAccessUsageDescription</key><string>Disk Map reads and adds calendar events.</string>
-  <key>NSRemindersFullAccessUsageDescription</key><string>Disk Map reads and adds reminders.</string>
-  <key>NSContactsUsageDescription</key><string>Disk Map looks up people in your contacts.</string>
-  <key>NSBluetoothAlwaysUsageDescription</key><string>Disk Map connects to Bluetooth devices.</string>
-  <key>NSAppleEventsUsageDescription</key><string>Disk Map reads your email and drafts replies through Mail.</string>
-  <key>NSLocalNetworkUsageDescription</key><string>Disk Map looks for printers and other devices on your network.</string>
-  <key>NSLocationUsageDescription</key><string>Disk Map uses your location.</string>
-  <key>NSLocationWhenInUseUsageDescription</key><string>Disk Map uses your location.</string>
-  <key>NSAppleMusicUsageDescription</key><string>Disk Map plays music from your library.</string>
+${LAMP_MAC_USAGE}
 </dict></plist>
 PLIST
 intents DiskMap "$APP" "dev.lamp.dev.app.diskmap" Sources
